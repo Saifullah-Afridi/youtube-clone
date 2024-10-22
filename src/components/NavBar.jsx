@@ -1,18 +1,10 @@
 import React, { useState } from "react";
 import ReorderIcon from "@mui/icons-material/Reorder";
 import { logo } from "../utils/constants";
-import {
-  Box,
-  IconButton,
-  Input,
-  InputAdornment,
-  Paper,
-  Stack,
-  TextField,
-} from "@mui/material";
+import { Box, IconButton, Input, Paper, Stack, TextField } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-const NavBar = () => {
+const NavBar = ({ open, setOpen }) => {
   const [search, setSearch] = useState("");
   return (
     <Box bgcolor="#1e1d1b" height="60px">
@@ -25,6 +17,7 @@ const NavBar = () => {
       >
         <Stack direction="row" gap={2}>
           <IconButton
+            onClick={() => setOpen(!open)}
             sx={{
               bgcolor: "white",
               "&:hover": {
@@ -39,7 +32,6 @@ const NavBar = () => {
           </Link>
         </Stack>
         <Paper
-          component="form"
           onSubmit={(e) => {
             e.preventDefault();
           }}
