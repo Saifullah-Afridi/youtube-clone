@@ -32,17 +32,22 @@ const Videos = ({ videos }) => {
                 <Typography sx={{ color: "white" }}>
                   {video?.snippet?.title}
                 </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontSize: "15px",
-                    fontWeight: "400",
-                    color: "gray",
-                    mt: "2px",
-                  }}
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={`/channel/${video?.snippet?.channelId}`}
                 >
-                  {video?.snippet?.channelTitle}
-                </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontSize: "15px",
+                      fontWeight: "400",
+                      color: "gray",
+                      mt: "2px",
+                    }}
+                  >
+                    {video?.snippet?.channelTitle}
+                  </Typography>
+                </Link>
                 <Typography variant="body2" color="gray">
                   {video?.snippet?.publishTime}
                 </Typography>
