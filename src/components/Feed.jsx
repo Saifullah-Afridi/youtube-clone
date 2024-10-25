@@ -6,19 +6,23 @@ import { Box } from "@mui/material";
 
 const Feed = ({ open, setOpen }) => {
   const [selected, setSelected] = useState("New");
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    fetchData(`search?part=snippet&q=${selected}`);
-  }, []);
+    fetchData(`search?part=snippet&q=${selected}`).then((data) =>
+      setVideos(data.items)
+    );
+  }, [selected]);
+
   return (
-    <Box bgcolor="#1f1f1f" height="92vh" border="2px solid red">
+    <Box>
       <SideBar
         open={open}
         setOpen={setOpen}
         selected={selected}
         setSelected={setSelected}
       />
-      <Main selected={selected} />
+      <Main selected={selected} videos={videos} />
     </Box>
   );
 };

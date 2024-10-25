@@ -50,7 +50,10 @@ const SideBar = ({ open, setOpen, selected, setSelected }) => {
             }}
             startIcon={<category.icon sx={{ mr: "10px" }} />}
             key={index}
-            onClick={() => setSelected(category.name)}
+            onClick={() => {
+              setSelected(category.name);
+              setOpen(false);
+            }}
           >
             {category.name}
           </Button>
