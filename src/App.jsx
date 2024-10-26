@@ -9,6 +9,7 @@ import { Box } from "@mui/material";
 
 const App = () => {
   const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState("New");
   return (
     <Box sx={{ bgcolor: "#1f1f1f" }}>
       <BrowserRouter>
@@ -17,10 +18,28 @@ const App = () => {
           <Route
             path="/"
             exact
-            element={<Feed open={open} setOpen={setOpen} />}
+            element={
+              <Feed
+                open={open}
+                setOpen={setOpen}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            }
           />
           <Route path="/video/:id" exact element={<VideoDetail />} />
-          <Route path="/channel/:id" exact element={<ChannelDetail />} />
+          <Route
+            path="/channel/:id"
+            exact
+            element={
+              <ChannelDetail
+                open={open}
+                setOpen={setOpen}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            }
+          />
           <Route path="/search/:searchTerm" exact element={<SearchFeed />} />
         </Routes>
       </BrowserRouter>

@@ -4,10 +4,11 @@ import { logo } from "../utils/constants";
 import { Box, IconButton, Input, Paper, Stack, TextField } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+
 const NavBar = ({ open, setOpen }) => {
   const [search, setSearch] = useState("");
   return (
-    <Box bgcolor="#1e1d1b" height="60px">
+    <Box bgcolor="#1e1d1b" height="60px" mb={3}>
       <Stack
         direction={"row"}
         justifyContent={"space-between"}
@@ -17,7 +18,7 @@ const NavBar = ({ open, setOpen }) => {
       >
         <Stack direction="row" gap={2}>
           <IconButton
-            onClick={() => setOpen(!open)}
+            onClick={() => setOpen(true)}
             sx={{
               bgcolor: "white",
               "&:hover": {

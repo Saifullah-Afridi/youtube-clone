@@ -4,8 +4,9 @@ import { fetchData } from "./../utils/fetchFromApi";
 import { Box } from "@mui/material";
 import ChannelCard from "./ChannelCard";
 import Videos from "./Videos";
+import SideBar from "./SideBar";
 
-const ChannelDetail = () => {
+const ChannelDetail = ({ open, setOpen, selected, setSelected }) => {
   const { id } = useParams();
   const [channelDetail, setChannelDetail] = useState(null);
   const [videos, setVideos] = useState([]);
@@ -19,7 +20,13 @@ const ChannelDetail = () => {
   }, [id]);
 
   return (
-    <Box sx={{ minHeight: "98vh" }}>
+    <Box sx={{ minHeight: "98vh", mt: "10px" }} border="2px solid red">
+      <SideBar
+        open={open}
+        setOpen={setOpen}
+        selected={selected}
+        setSelected={setSelected}
+      />
       <ChannelCard channelDetail={channelDetail} />
       <Videos videos={videos} />
     </Box>

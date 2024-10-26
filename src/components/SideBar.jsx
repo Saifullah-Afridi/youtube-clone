@@ -2,9 +2,10 @@ import { Button, Drawer, IconButton, Stack } from "@mui/material";
 import { logo } from "../utils/constants";
 import ReorderIcon from "@mui/icons-material/Reorder";
 import { categories } from "../utils/categories";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SideBar = ({ open, setOpen, selected, setSelected }) => {
+  const navigate = useNavigate();
   return (
     <Drawer
       PaperProps={{
@@ -53,6 +54,7 @@ const SideBar = ({ open, setOpen, selected, setSelected }) => {
             onClick={() => {
               setSelected(category.name);
               setOpen(false);
+              navigate("/");
             }}
           >
             {category.name}

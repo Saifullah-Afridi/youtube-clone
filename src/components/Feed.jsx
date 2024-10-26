@@ -4,8 +4,7 @@ import { fetchData } from "../utils/fetchFromApi";
 import Main from "./Main";
 import { Box } from "@mui/material";
 
-const Feed = ({ open, setOpen }) => {
-  const [selected, setSelected] = useState("New");
+const Feed = ({ open, setOpen, selected, setSelected }) => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
