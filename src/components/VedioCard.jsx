@@ -1,12 +1,4 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { CardContent, CardMedia, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -14,7 +6,7 @@ const VedioCard = ({ video }) => {
   return (
     <Link
       to={`/video/${video?.id?.videoId}`}
-      style={{ textDecoration: "none", color: "inherit" }}
+      style={{ textDecoration: "none" }}
     >
       <CardMedia
         component="img"
