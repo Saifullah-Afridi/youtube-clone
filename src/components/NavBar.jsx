@@ -3,10 +3,16 @@ import ReorderIcon from "@mui/icons-material/Reorder";
 import { logo } from "../utils/constants";
 import { Box, IconButton, Input, Paper, Stack, TextField } from "@mui/material";
 import { Search } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavBar = ({ open, setOpen }) => {
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/search/${search}`);
+    setSearch("");
+  };
   return (
     <Box bgcolor="#1e1d1b" height="60px" mb={3}>
       <Stack
@@ -18,7 +24,9 @@ const NavBar = ({ open, setOpen }) => {
       >
         <Stack direction="row" gap={2}>
           <IconButton
-            onClick={() => setOpen(true)}
+            onClick={() => {
+              setOpen(true);
+            }}
             sx={{
               bgcolor: "white",
               "&:hover": {
@@ -33,15 +41,15 @@ const NavBar = ({ open, setOpen }) => {
           </Link>
         </Stack>
         <Paper
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
+          component="form"
+          onSubmit={handleSubmit}
           sx={{
             display: "flex",
             alignItems: "center",
             borderRadius: "40px",
             gap: "10px",
             mx: "10px",
+            px: "5px",
             bgcolor: "#121212",
             border: "1px solid white",
           }}
@@ -56,7 +64,7 @@ const NavBar = ({ open, setOpen }) => {
               color: "#e2e2e2",
             }}
             value={search}
-            onChange={() => {}}
+            onChange={(e) => setSearch(e.target.value)}
           />
           <IconButton
             type="submit"

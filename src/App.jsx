@@ -40,7 +40,18 @@ const App = () => {
               />
             }
           />
-          <Route path="/search/:searchTerm" exact element={<SearchFeed />} />
+          <Route
+            path="/search/:searchTerm"
+            exact
+            element={
+              <SearchFeed
+                open={open}
+                setOpen={setOpen}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </Box>

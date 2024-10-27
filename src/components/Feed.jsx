@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 import { fetchData } from "../utils/fetchFromApi";
 import Main from "./Main";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 const Feed = ({ open, setOpen, selected, setSelected }) => {
   const [videos, setVideos] = useState([]);
@@ -21,6 +21,9 @@ const Feed = ({ open, setOpen, selected, setSelected }) => {
         selected={selected}
         setSelected={setSelected}
       />
+      <Typography sx={{ width: "90%", mx: "auto" }} pb={2} color="white">
+        {selected} Videos
+      </Typography>
       <Main selected={selected} videos={videos} />
     </Box>
   );
