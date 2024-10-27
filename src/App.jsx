@@ -11,7 +11,7 @@ const App = () => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("New");
   return (
-    <Box sx={{ bgcolor: "#1f1f1f" }}>
+    <Box sx={{ bgcolor: "#1f1f1f", minHeight: "90vh" }}>
       <BrowserRouter>
         <NavBar open={open} setOpen={setOpen} />
         <Routes>
@@ -27,7 +27,18 @@ const App = () => {
               />
             }
           />
-          <Route path="/video/:id" exact element={<VideoDetail />} />
+          <Route
+            path="/video/:id"
+            exact
+            element={
+              <VideoDetail
+                open={open}
+                setOpen={setOpen}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            }
+          />
           <Route
             path="/channel/:id"
             exact

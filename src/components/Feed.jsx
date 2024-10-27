@@ -14,7 +14,7 @@ const Feed = ({ open, setOpen, selected, setSelected }) => {
   }, [selected]);
 
   return (
-    <Box>
+    <Box sx={{ bgcolor: "#1f1f1f", minHeight: "90vh" }}>
       <SideBar
         open={open}
         setOpen={setOpen}
