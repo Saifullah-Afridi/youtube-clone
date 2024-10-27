@@ -11,10 +11,10 @@ const VedioCard = ({ video }) => {
       <CardMedia
         component="img"
         sx={{ borderRadius: "12px" }}
-        image={video?.snippet?.thumbnails?.high?.url}
+        image={video?.snippet?.thumbnails?.medium?.url}
         alt="thumbnail"
-        width={video?.snippet?.thumbnails?.high?.width}
-        hight={video?.snippet?.thumbnails?.high?.hight}
+        width={video?.snippet?.thumbnails?.medium?.width}
+        hight={video?.snippet?.thumbnails?.medium?.hight}
       ></CardMedia>
       <CardContent>
         <Typography sx={{ color: "white" }}>{video?.snippet?.title}</Typography>

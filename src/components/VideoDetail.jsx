@@ -85,7 +85,7 @@ const VideoDetail = ({ open, setOpen, selected, setSelected }) => {
                     <CardMedia
                       component="img"
                       sx={{ maxWidth: "200px" }}
-                      src={relatedVideo?.snippet?.thumbnails?.high?.url}
+                      src={relatedVideo?.snippet?.thumbnails?.medium?.url}
                     />
                     <CardContent sx={{ bgcolor: "#1f1f1f1f", color: "gray" }}>
                       <Typography color="white" variant="body2">
